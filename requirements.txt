@@ -1,0 +1,7 @@
+onnxruntime
+opencv-python
+coco_eval
+ipykernel
+tqdm
+roboflow
+torchvision

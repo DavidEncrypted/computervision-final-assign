@@ -1,0 +1,28 @@
+yolov10n op val set:
+Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% 2/2 [00:00<00:00,  3.50it/s]
+                   all         80        433      0.722      0.632      0.698      0.335
+              artifact         80         27      0.909       0.74      0.815      0.445
+                crater         80        101       0.62      0.574      0.634      0.257
+                  rock         80        305      0.638      0.582      0.644      0.303
+Speed: 0.2ms preprocess, 3.1ms inference, 0.0ms loss, 0.0ms postprocess per image
+
+
+Op test set:
+val: Scanning /content/datasets/mooncrater-3/test/labels... 20 images, 0 backgrounds, 0 corrupt: 100% 20/20 [00:00<00:00, 838.30it/s]
+val: New cache created: /content/datasets/mooncrater-3/test/labels.cache
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% 20/20 [00:01<00:00, 10.32it/s]
+                   all         20        107      0.711      0.812      0.789      0.354
+              artifact         20          2      0.764          1      0.995      0.468
+                crater         20         32      0.568      0.656      0.527      0.209
+                  rock         20         73      0.803       0.78      0.845      0.384
+
+
+RUNTIMES:
+
+unquantized fp32 model:
+
+1000 runs, average
+ON PC:
+0.0592 ms
+
+GraphOptimizationLevel.ORT_ENABLE_ALL 0.0577 ms 

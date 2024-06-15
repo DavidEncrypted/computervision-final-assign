@@ -1,0 +1,20 @@
+
+
+- Alle 3 de modellen op de zelfde manier benchmarken.
+	Lokaal env en runnen
+	Benchmark script schrijven
+		onnx model loaden
+
+
+- Ik heb nu een raspberry 5 thuis waarop ik de performance kan benchmarken, dat doen we in onnx. Elk model moet dus naar onnx geexporteerd worden
+	Performance benchmark script
+
+
+- Dan deze quantization toepassen op elk model: https://github.com/tinyvision/DAMO-YOLO/blob/master/tools/partial_quantization/README.md
+	
+	...
+
+
+
+
+- Blog schrijven
