@@ -25,4 +25,9 @@ unquantized fp32 model:
 ON PC:
 0.0592 ms
 
-GraphOptimizationLevel.ORT_ENABLE_ALL 0.0577 ms 
+GraphOptimizationLevel.ORT_ENABLE_ALL 0.0577 sec 
+
+
+ON PI
+225 ms
+average over 100 runs
