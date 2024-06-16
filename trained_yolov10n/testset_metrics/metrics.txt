@@ -30,14 +30,14 @@ GraphOptimizationLevel.ORT_ENABLE_ALL 0.0577 sec
 
 ON PI
 Yolov10n
-215 ms 
+218 ms 
 average over 100 runs
 
 Nanodet
-207 ms
+204 ms
 
-int8 yolov10n
-95 ms
+int8 dynamic quantization yolov10n
+94 ms
 
 
 

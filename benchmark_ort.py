@@ -4,6 +4,7 @@ import time
 
 yolon_path = "yolon_best.onnx"
 nanodet_path = "nanodet.onnx"
+int8_dyn_path = "yolon_int8_dyn.onnx"
 int8_path = "yolon_int8.onnx"
 
 def run_bench(session_p, name):
@@ -36,6 +37,13 @@ print("nanodet:")
 run_bench(session_nanodet, 'data')
 
 del session_nanodet
+
+session_int8_dyn = rt.InferenceSession(int8_dyn_path, providers=['CPUExecutionProvider'])
+
+print("int8 dynamic yolo:")
+run_bench(session_int8_dyn, 'images')
+
+del session_int8_dyn
 
 session_int8 = rt.InferenceSession(int8_path, providers=['CPUExecutionProvider'])
 
