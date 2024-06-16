@@ -36,6 +36,9 @@ average over 100 runs
 Nanodet
 204 ms
 
+damoyolo 
+151ms
+
 int8 dynamic quantization yolov10n
 94 ms
 
@@ -69,3 +72,7 @@ int8 dynamic quantization yolov10n
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.278
  Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.294
  Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.495
+
+
+
+ damoyolo 151ms

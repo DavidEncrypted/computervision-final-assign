@@ -7,9 +7,12 @@ nanodet_path = "nanodet.onnx"
 int8_dyn_path = "yolon_int8_dyn.onnx"
 int8_path = "yolon_int8.onnx"
 damoyolo_path = "damoyolo_Ns.onnx"
+yolon_320_path = "yolo320.onnx"
+quantized_yolon320_path = "yolon320_int8_dyn.onnx"
+model_int8_path_320 = 'yolon_int8_static_320.onnx'
 
-def run_bench(session_p, name):
-    random_image = np.random.rand(1, 3, 640, 640).astype(np.float32)
+def run_bench(session_p, name, img_size=640):
+    random_image = np.random.rand(1, 3, img_size, img_size).astype(np.float32)
     total = 0
     for i in range(0,100):
         start = time.perf_counter()
@@ -19,8 +22,39 @@ def run_bench(session_p, name):
 
     print(total / 100, "ms average over 100 runs")
 
-random_image = np.random.rand(1, 3, 640, 640).astype(np.float32)
+# random_image = np.random.rand(1, 3, 320, 320).astype(np.float32)
 
+
+session_320 = rt.InferenceSession(yolon_320_path, providers=['CPUExecutionProvider'])
+
+print("yolo320:")
+run_bench(session_320, 'images', 320)
+
+del session_320
+
+session_320_int8_dyn = rt.InferenceSession(quantized_yolon320_path, providers=['CPUExecutionProvider'])
+
+print("int8dyn320:")
+run_bench(session_320_int8_dyn, 'images', 320)
+
+del session_320_int8_dyn
+
+session_320_int8_static = rt.InferenceSession(model_int8_path_320, providers=['CPUExecutionProvider'])
+
+print("int8static320:")
+run_bench(session_320_int8_static, 'images', 320)
+
+del session_320_int8_static
+
+
+
+
+
+
+
+
+
+exit()
 session = rt.InferenceSession(yolon_path, providers=['CPUExecutionProvider'])
 
 start = time.perf_counter()
