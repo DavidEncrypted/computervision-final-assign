@@ -6,6 +6,7 @@ yolon_path = "yolon_best.onnx"
 nanodet_path = "nanodet.onnx"
 int8_dyn_path = "yolon_int8_dyn.onnx"
 int8_path = "yolon_int8.onnx"
+damoyolo_path = "damoyolo_Ns.onnx"
 
 def run_bench(session_p, name):
     random_image = np.random.rand(1, 3, 640, 640).astype(np.float32)
@@ -30,6 +31,23 @@ print("first one: ", end)
 run_bench(session, 'images')
 
 del session
+
+session_damoyolo = rt.InferenceSession(damoyolo_path, providers=['CPUExecutionProvider'])
+
+print("damoyolo:")
+# run_bench(session_damoyolo, 'images')
+
+random_image = np.random.rand(1, 3, 416, 416).astype(np.float32)
+total = 0
+for i in range(0,100):
+    start = time.perf_counter()
+    predictions = session_damoyolo.run(None, {'images': random_image})
+    end = (time.perf_counter() - start) * 1000
+    total += end
+
+print(total / 100, "ms average over 100 runs")
+
+del session_damoyolo
 
 session_nanodet = rt.InferenceSession(nanodet_path, providers=['CPUExecutionProvider'])
 

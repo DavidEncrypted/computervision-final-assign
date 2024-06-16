@@ -6,6 +6,7 @@ yolon_path = "yolon_best.onnx"
 nanodet_path = "nanodet.onnx"
 int8_dyn_path = "yolon_int8_dyn.onnx"
 int8_path = "yolon_int8.onnx"
+damoyolo_path = "damoyolo_Ns.onnx"
 
 sess_options = rt.SessionOptions()
 sess_options.enable_profiling = True
